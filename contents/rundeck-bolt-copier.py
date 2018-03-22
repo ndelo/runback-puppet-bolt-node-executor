@@ -9,7 +9,6 @@ parser.add_argument('source')
 parser.add_argument('destination')
 args = parser.parse_args()
 
-
 try:
 	print args.destination
 
