@@ -1,0 +1,112 @@
+name: "Puppet Bolt Node Executor and File Copier"
+rundeckPluginVersion: 1.2
+author: Nicholas Delo
+date: 3/21/18
+version: 1.0
+providers:
+  - name: bolt-node-executor
+    service: NodeExecutor
+    title: Puppet Bolt Node Executor
+    description: Executes a command on a remote node using Puppet Bolt
+    plugin-type: script
+    script-interpreter: python -u
+    script-file: rundeck-bolt-executor.py
+    config:
+      - name: protocol
+        title: Protocol
+        type: Select
+        values:
+        - ssh
+        - winrm
+        default: ssh
+        scope: Instance
+        renderingOptions:
+          instance-scope-node-attribute: "bolt-protocol"
+      - name: bolt-user
+        title: Bolt User
+        type: String
+        required: false
+        scope: Instance
+        renderingOptions:
+          displayType: SINGLE_LINE
+          instance-scope-node-attribute: "bolt-user"
+      - name: use-ssh-key
+        title: Use SSH Key
+        type: Boolean
+        required: false
+        scope: Instance
+      - name: use-tty
+        title: Use TTY
+        type: Boolean
+        description: Request a pseudo TTY on nodes that support it (for SSH only)
+        required: false
+        scope: Instance
+      - name: use-winrm-ssl
+        title: Use SSL with WinRM
+        type: Boolean
+        required: false
+      - name: credential
+        title: Bolt Credential Storage Path
+        type: String
+        required: false
+        scope: Instance
+        description: "SSH key or user password storage path."
+        renderingOptions:
+          selectionAccessor: "STORAGE_PATH"
+          valueConversion: "STORAGE_PATH_AUTOMATIC_READ"
+          storage-path-root: "keys"
+          instance-scope-node-attribute: "bolt-credential"
+  - name: bolt-file-copier
+    service: FileCopier
+    title: Puppet Bolt File Copier
+    description: Copies file to the node via bold.
+    plugin-type: script
+    script-interpreter: python -u
+    script-file: rundeck-bolt-copier.py
+    script-args: ${file-copy.file} ${file-copy.destination}
+    config:
+      - name: protocol
+        title: Protocol
+        type: Select
+        values:
+        - ssh
+        - winrm
+        default: ssh
+        scope: Instance
+        renderingOptions:
+          instance-scope-node-attribute: "bolt-protocol"
+      - name: bolt-user
+        title: Bolt User
+        type: String
+        required: false
+        scope: Instance
+        renderingOptions:
+          displayType: SINGLE_LINE
+          instance-scope-node-attribute: "bolt-user"
+      - name: use-ssh-key
+        title: Use SSH Key
+        type: Boolean
+        required: false
+        scope: Instance
+      - name: use-tty
+        title: Use TTY
+        type: Boolean
+        description: Request a pseudo TTY on nodes that support it (for SSH only)
+        required: false
+        scope: Instance
+      - name: use-winrm-ssl
+        title: Use SSL with WinRM
+        type: Boolean
+        required: false
+        scope: Instance
+      - name: credential
+        title: Bolt Credential Storage Path
+        type: String
+        required: false
+        scope: Instance
+        description: "SSH key or user password storage path."
+        renderingOptions:
+          selectionAccessor: "STORAGE_PATH"
+          valueConversion: "STORAGE_PATH_AUTOMATIC_READ"
+          storage-path-root: "keys"
+          instance-scope-node-attribute: "bolt-credential"
