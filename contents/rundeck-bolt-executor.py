@@ -13,9 +13,9 @@ try:
 
 	protocol = os.getenv("RD_CONFIG_PROTOCOL")
 	node = protocol + "://" + (os.getenv("RD_NODE_NAME"))
-	exec_command = os.getenv("RD_EXEC_COMMAND") 
+	rd_exec_command = os.getenv("RD_EXEC_COMMAND") 
 
-	COMMAND = ["/usr/local/bin/bolt", "command", "run", exec_command, "-n", node, "-u"]
+	COMMAND = ["/usr/local/bin/bolt", "command", "run", rd_exec_command, "-n", node, "-u"]
 
 	if "RD_CONFIG_BOLT_USER" in os.environ:
 		COMMAND.append(os.getenv("RD_CONFIG_BOLT_USER"))
