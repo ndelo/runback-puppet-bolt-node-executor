@@ -23,6 +23,7 @@ try:
 	node = protocol + "://" + (os.getenv("RD_NODE_NAME"))
 
 	COMMAND = ["/usr/local/bin/bolt", "file", "upload", "-n", node, args.source, args.destination, "-u"]
+	
 	if "RD_CONFIG_BOLT_USER" in os.environ:
 		COMMAND.append(os.getenv("RD_CONFIG_BOLT_USER"))
 	else:
