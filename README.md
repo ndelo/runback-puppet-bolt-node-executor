@@ -3,7 +3,7 @@ This is a [Rundeck Node Executor Plugin](http://rundeck.org/docs/developer/node-
 
 
 ## Install
-Download the plugin from the [Releases]() page.
+Download the plugin from the [Releases](https://github.com/ndelo/rundeck-puppet-bolt-node-executor/releases/tag/0.1) page.
 Copy rundeck-puppet-bolt-node-executor.zip libtext/ folder of $RUNDECK_BASE. 
 
 ## Features
