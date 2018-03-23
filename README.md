@@ -1,4 +1,4 @@
-﻿# Rundeck Node Executor and File Copier for Puppet Bolt
+﻿# Puppet Bolt Rundeck Node Executor and File Copier
 This is a [Rundeck Node Executor Plugin](http://rundeck.org/docs/developer/node-executor-plugin.html) that provides remote command and script execution, and file transfers, on Rundeck using Puppet Bolt.
 
 
@@ -22,7 +22,7 @@ The following properties can be overwritten at the node-level:
 Note: If no bolt-user is specified, then plugin will default to node's 'username' value.
 
 ## Bolt configuration files
-No bolt specific configuration is needed. However if you with to use Bolt configuration files, these should exist in a .puppetlabs folder in the home directory of the rundeck user, usually $RUNDECK_BASE.
+No bolt specific configuration is needed. However, if you wish to use Bolt configuration files, these should exist in a .puppetlabs folder in the home directory of the rundeck user, usually $RUNDECK_BASE.
 
 ## Notes about this plugin
 
