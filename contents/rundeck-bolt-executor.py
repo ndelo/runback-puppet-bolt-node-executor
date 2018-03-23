@@ -7,7 +7,7 @@ try:
 	if not "RD_CONFIG_CREDENTIAL" in os.environ:
 		raise Exception('No bolt credentials set')
 
-	# bolt gems need to be able to read the HOME enviroment variable on the RD server
+	# the latest bolt gems need to be able to read the HOME enviroment variable on the RD server
 	if not "HOME" in os.environ: 
 		os.environ["HOME"] = os.getenv("RD_RUNDECK_BASE")
 
@@ -28,6 +28,8 @@ try:
 		else:
 			COMMAND.append("--private-key")
 			
+			# bolt requires that --private-key be the path to a keyfile
+			# so we create a temp keyfile for use that is later cleaned up
 			path = os.getenv("RD_RUNDECK_BASE") + "/.bolt"
 			
 			if not os.path.exists(path):
@@ -54,7 +56,9 @@ try:
 			COMMAND.append("--ssl")
 		else:
 			COMMAND.append("--no-ssl")
-
+	
+	# for debug we print out bolt debug info, as well as
+	# rd enviroment variables and the full bolt command
 	if os.getenv("RD_JOB_LOGLEVEL") == "DEBUG":
 		COMMAND.append("--debug")
 

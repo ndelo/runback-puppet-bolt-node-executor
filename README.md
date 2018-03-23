@@ -7,7 +7,7 @@ Download the plugin from the [Releases](https://github.com/ndelo/rundeck-puppet-
 Copy rundeck-puppet-bolt-node-executor.zip to the  libtext/ folder of $RUNDECK_BASE. 
 
 ## Features
-The plugin supprts the following features:
+The plugin supports the following features:
 - SSH using passwords or keys
 - pseduo tty support
 - WinRM over SSL or non-SSL transport
