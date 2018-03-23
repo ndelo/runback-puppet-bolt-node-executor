@@ -7,7 +7,7 @@ try:
 	if not "RD_CONFIG_CREDENTIAL" in os.environ:
 		raise Exception('No bolt credentials set')
 
-	# bolt gems need and enviroment variable
+	# bolt gems need to be able to read the HOME enviroment variable on the RD server
 	if not "HOME" in os.environ: 
 		os.environ["HOME"] = os.getenv("RD_RUNDECK_BASE")
 
