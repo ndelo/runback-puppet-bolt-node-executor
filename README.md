@@ -32,6 +32,7 @@ No bolt specific configuration is needed. However, if you wish to use Bolt confi
 ## Notes about this plugin
 
 This plug has been developed and tested on the following:
+- Rundeck 2.10.8
 - Bolt version 0.18.0
 - Python version 2.7.5
 - Oracle Enterprise Linux 7
