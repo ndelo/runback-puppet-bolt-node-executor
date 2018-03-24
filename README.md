@@ -13,7 +13,7 @@ Copy rundeck-puppet-bolt-node-executor.zip to the  libtext/ folder of $RUNDECK_B
 ## Features
 The plugin supports the following features:
 - SSH using passwords or keys
-- pseduo tty support
+- Pseduo tty support
 - WinRM over SSL or non-SSL transport
 - Uses Rundeck keystorage for credentials and keys
 - Can be used in conjunction with Bolt configuration files
