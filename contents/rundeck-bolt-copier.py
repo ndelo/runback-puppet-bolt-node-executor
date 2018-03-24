@@ -93,7 +93,7 @@ try:
 	if protocol == "winrm":
 		
 		if "RD_CONFIG_USE_SSH_KEY" in os.environ:
-    		raise Exception('SSH keys cannot be used with the winrm protocol')
+			raise Exception('SSH keys cannot be used with the winrm protocol')
 			
 		if not os.getenv("RD_CONFIG_USE_WINRM_SSL"):
 			COMMAND.append("--no-ssl")
