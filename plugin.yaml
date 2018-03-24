@@ -2,7 +2,7 @@ name: "Puppet Bolt Node Executor and File Copier"
 rundeckPluginVersion: 1.2
 author: Nicholas Delo
 date: 3/21/18
-version: 0.1
+version: 0.1.2
 providers:
   - name: bolt-node-executor
     service: NodeExecutor
