@@ -11,6 +11,8 @@ parser.add_argument('destination')
 args = parser.parse_args()
 
 try:
+	print args.destination
+
 	# bolt gems need a HOME env
 	if not "HOME" in os.environ: 
 		os.environ["HOME"] = os.getenv("RD_RUNDECK_BASE")
@@ -105,30 +107,6 @@ try:
 	# rd environment variables and the full bolt command
 	if os.getenv("RD_JOB_LOGLEVEL") == "DEBUG":
 		COMMAND.append("--debug")
-
-		arr_command = COMMAND[:]
-		if "--password" in arr_command:
-			arr_command[arr_command.index("--password") + 1] = "[SECURE]"
-		
-		str_command = ''
-		for command in arr_command:
-			str_command += command + ' '
-		
-		print 'Bolt command:'
-		print str_command.strip() + '\n'
-
-		if os.path.exists(bolt_cfg_path):
-			print 'Bolt Configuration File:'
-			print bolt_cfg 
-			print '\n'
-
-		print 'RD Enviroment Variables'
-		print '-----------------------'
-		for var in os.environ:
-			if var == 'RD_CONFIG_CREDENTIAL':
-				print "%s=[SECURE]" % var
-			else:
-				print "%s=%s" % (var, os.getenv(var))
 
 	output = subprocess.call(COMMAND)
 	sys.exit(output)
