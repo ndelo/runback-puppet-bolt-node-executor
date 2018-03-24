@@ -27,7 +27,7 @@ The following properties can be overwritten at the node-level:
 Note: If no bolt-user is specified, then plugin will default to node's 'username' value.
 
 ## Bolt configuration files
-No bolt specific configuration is needed. However, if you wish to use Bolt configuration files, these should exist in a .puppetlabs/ folder in the home directory of the rundeck user, usually $RUNDECK_BASE. Settings set in Rundeck project configurations will override settings in bolt.yml.
+No bolt specific configuration is needed. However, if you wish to use Bolt configuration files, these should exist in a '.puppetlabs' folder in the home directory of the rundeck user, usually $RUNDECK_BASE. Settings in Rundeck project configurations will override settings in bolt.yml.
 
 ## Notes about this plugin
 
