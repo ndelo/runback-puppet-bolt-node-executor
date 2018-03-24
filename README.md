@@ -7,8 +7,8 @@ Download the plugin from the [Releases](https://github.com/ndelo/rundeck-puppet-
 Copy rundeck-puppet-bolt-node-executor.zip to the  libtext/ folder of $RUNDECK_BASE. 
 
 # Requirements
-Python 2.x
-[PyYaml](https://github.com/yaml/pyyaml)
+- Python 2.x
+- [PyYaml](https://github.com/yaml/pyyaml)
 
 ## Features
 The plugin supports the following features:
