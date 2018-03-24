@@ -37,7 +37,7 @@ try:
 	else:
 		COMMAND.append(os.getenv("RD_NODE_USERNAME"))
 
-	if protocol = "ssh":
+	if protocol == "ssh":
 				
 		if "RD_CONFIG_USE_SSH_KEY" in os.environ:
 			
@@ -72,13 +72,6 @@ try:
 			COMMAND.append("--private-key")
 			COMMAND.append(os.path.expanduser(keypath))
 
-		else:
-			if not "RD_CONFIG_CREDENTIAL" in os.environ:
-				raise Exception("Password missing")
-			else:
-				COMMAND.append("--password")
-				COMMAND.append(os.getenv("RD_CONFIG_CREDENTIAL"))
-
 		# enforce host key checking if set in bolt config
 		try:
 			if bolt_cfg["ssh"]["host-key-check"] == False:
@@ -89,6 +82,14 @@ try:
 		if os.getenv("RD_CONFIG_USE_TTY"):
 			COMMAND.append("--tty")
 
+	# password auth
+	if not "RD_CONFIG_USE_SSH_KEY" in os.environ:
+
+		if not "RD_CONFIG_CREDENTIAL" in os.environ:
+			raise Exception("Password missing!")
+		else:
+			COMMAND.append("--password")
+			COMMAND.append(os.getenv("RD_CONFIG_CREDENTIAL"))
 
 	if protocol == "winrm":
 		

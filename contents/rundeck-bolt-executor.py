@@ -32,7 +32,7 @@ try:
 
 	if protocol == "ssh":
 
-		if "RD_CONFIG_USE_SSH_KEY" in os.environ:			
+		if "RD_CONFIG_USE_SSH_KEY" in os.environ:
 
 			if os.getenv("RD_CONFIG_CREDENTIAL"):
 				# bolt requires that --private-key be the path to a keyfile
@@ -65,13 +65,6 @@ try:
 			COMMAND.append("--private-key")
 			COMMAND.append(os.path.expanduser(keypath))
 
-		else:
-			if not "RD_CONFIG_CREDENTIAL" in os.environ:
-				raise Exception("Password missing")
-			else:
-				COMMAND.append("--password")
-				COMMAND.append(os.getenv("RD_CONFIG_CREDENTIAL"))
-		
 		# enforce host key checking if set in bolt config
 		try:
 			if bolt_cfg["ssh"]["host-key-check"] == False:
@@ -81,6 +74,15 @@ try:
 		
 		if os.getenv("RD_CONFIG_USE_TTY"):
 			COMMAND.append("--tty")
+
+	# password auth
+	if not "RD_CONFIG_USE_SSH_KEY" in os.environ:
+
+		if not "RD_CONFIG_CREDENTIAL" in os.environ:
+			raise Exception("Password missing!")
+		else:
+			COMMAND.append("--password")
+			COMMAND.append(os.getenv("RD_CONFIG_CREDENTIAL"))
 
 	if protocol == "winrm":
 
@@ -97,7 +99,7 @@ try:
 				COMMAND.append("--ssl")
 		except:
 			pass
-	
+
 	# for debug we print out bolt debug info, as well as
 	# rd environment variables and the full bolt command
 	if os.getenv("RD_JOB_LOGLEVEL") == "DEBUG":
