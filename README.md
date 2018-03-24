@@ -2,7 +2,7 @@
 This is a [Rundeck Node Executor Plugin](http://rundeck.org/docs/developer/node-executor-plugin.html) that provides remote command and script execution, and file transfers, on Rundeck using [Puppet Bolt](https://puppet.com/docs/bolt/0.x/bolt.html).
 
 ## Install
-Download the plugin from the [Releases](https://github.com/ndelo/rundeck-puppet-bolt-node-executor/releases/tag/0.2) page.
+Download the plugin from the [Releases](https://github.com/ndelo/rundeck-puppet-bolt-node-executor/releases/tag/0.2.1) page.
 Copy rundeck-puppet-bolt-node-executor.zip to the  libtext/ folder of $RUNDECK_BASE. 
 
 ## Requirements
