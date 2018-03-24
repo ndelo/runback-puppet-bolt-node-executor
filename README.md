@@ -18,7 +18,7 @@ The plugin supports the following features:
 - Uses Rundeck keystorage for credentials and keys
 - Can be used in conjunction with Bolt configuration files
 
-## Node-level Properties
+## Node-level properties
 The following properties can be overwritten at the node-level:
 - bolt-user
 - bolt-protocol
