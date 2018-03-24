@@ -45,6 +45,7 @@ providers:
         title: Use SSL with WinRM
         type: Boolean
         required: false
+        scope: Instance
       - name: credential
         title: Bolt Credential Storage Path
         type: String

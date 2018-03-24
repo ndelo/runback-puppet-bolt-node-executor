@@ -6,12 +6,17 @@ This is a [Rundeck Node Executor Plugin](http://rundeck.org/docs/developer/node-
 Download the plugin from the [Releases](https://github.com/ndelo/rundeck-puppet-bolt-node-executor/releases/tag/0.1) page.
 Copy rundeck-puppet-bolt-node-executor.zip to the  libtext/ folder of $RUNDECK_BASE. 
 
+# Requirements
+Python 2.x
+[PyYaml]https://github.com/yaml/pyyaml()
+
 ## Features
 The plugin supports the following features:
 - SSH using passwords or keys
 - pseduo tty support
 - WinRM over SSL or non-SSL transport
 - Uses Rundeck keystorage for credentials and keys
+- Can be used in conjunction with Bolt configuration files
 
 ## Node-level Properties
 The following properties can be overwritten at the node-level:
@@ -22,7 +27,7 @@ The following properties can be overwritten at the node-level:
 Note: If no bolt-user is specified, then plugin will default to node's 'username' value.
 
 ## Bolt configuration files
-No bolt specific configuration is needed. However, if you wish to use Bolt configuration files, these should exist in a .puppetlabs folder in the home directory of the rundeck user, usually $RUNDECK_BASE.
+No bolt specific configuration is needed. However, if you wish to use Bolt configuration files, these should exist in a .puppetlabs/ folder in the home directory of the rundeck user, usually $RUNDECK_BASE. Settings set in Rundeck project configurations will override settings in bolt.yml.
 
 ## Notes about this plugin
 
