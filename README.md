@@ -8,7 +8,7 @@ Copy rundeck-puppet-bolt-node-executor.zip to the  libtext/ folder of $RUNDECK_B
 
 # Requirements
 - Python 2.x
-- [PyYaml](https://github.com/yaml/pyyaml)
+- [PyYaml](https://github.com/yaml/pyyaml) (Can be installed with a 'pip pyyaml')
 
 ## Features
 The plugin supports the following features:
