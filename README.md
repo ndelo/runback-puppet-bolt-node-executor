@@ -11,7 +11,7 @@ Copy rundeck-puppet-bolt-node-executor.zip to the  libtext/ folder of $RUNDECK_B
 - [PyYaml](https://github.com/yaml/pyyaml) (Can be installed with a 'pip install pyyaml')
 
 ## Features
-The plugin supports the following features:
+The plugin supports the following Bolt features:
 - SSH using passwords or keys
 - Pseudo tty support
 - WinRM over SSL or non-SSL transport
